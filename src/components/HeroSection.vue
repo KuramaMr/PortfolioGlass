@@ -92,6 +92,23 @@ const scrollToSection = (sectionId) => {
   overflow: hidden;
 }
 
+/* Support amélioré pour hero-card */
+@supports (backdrop-filter: blur(20px)) {
+  .hero-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Fallback pour les navigateurs sans support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .hero-card {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+}
+
 .hero-card::before {
   content: '';
   position: absolute;
@@ -166,10 +183,30 @@ const scrollToSection = (sectionId) => {
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 20px;
   min-width: 120px;
+  /* Fallback pour les navigateurs qui ne supportent pas backdrop-filter */
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Support amélioré pour backdrop-filter */
+@supports (backdrop-filter: blur(10px)) {
+  .badge {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* Fallback pour les navigateurs sans support backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .badge {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
 }
 
 .badge-number {
@@ -301,6 +338,70 @@ const scrollToSection = (sectionId) => {
   .btn-primary, .btn-secondary {
     width: 250px;
     padding: 12px 25px;
+  }
+}
+
+@media (max-width: 430px) and (min-width: 390px) {
+  .hero-section {
+    padding: 85px 8px 35px;
+  }
+
+  .hero-card {
+    padding: 35px 18px;
+    border-radius: 25px;
+    /* Amélioration du contraste pour éviter l'effet blanc */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .hero-badges {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .badge {
+    width: 190px;
+    padding: 18px;
+    /* Amélioration du contraste spécifique pour iPhone 14 Pro Max */
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  .badge-number {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .badge-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+  }
+
+  .title-main {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .title-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 210px;
+    font-size: 0.9rem;
+    padding: 13px 25px;
   }
 }
 
