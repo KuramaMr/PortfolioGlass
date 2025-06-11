@@ -199,6 +199,8 @@ watch(() => props.isVisible, (newValue) => {
   justify-content: center;
   padding: 20px;
   overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .formation-detail-container {
@@ -211,10 +213,12 @@ watch(() => props.isVisible, (newValue) => {
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
   margin-top: 80px;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .formation-detail-container::before {
@@ -258,6 +262,9 @@ watch(() => props.isVisible, (newValue) => {
   padding: 40px;
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .detail-header {
@@ -306,6 +313,8 @@ watch(() => props.isVisible, (newValue) => {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .info-card {
@@ -334,6 +343,8 @@ watch(() => props.isVisible, (newValue) => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .category-card {
@@ -341,6 +352,9 @@ watch(() => props.isVisible, (newValue) => {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 25px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .category-name {
@@ -640,6 +654,7 @@ watch(() => props.isVisible, (newValue) => {
     padding: 8px;
     align-items: flex-start;
     padding-top: 70px;
+    overflow-x: hidden;
   }
 
   .formation-detail-container {
@@ -647,6 +662,8 @@ watch(() => props.isVisible, (newValue) => {
     border-radius: 20px;
     margin-top: 0;
     margin-bottom: 10px;
+    width: calc(100% - 16px);
+    max-width: calc(100% - 16px);
   }
 
   .close-btn {
@@ -660,33 +677,42 @@ watch(() => props.isVisible, (newValue) => {
 
   .detail-content {
     padding: 25px 15px;
+    width: calc(100% - 30px);
   }
 
   .formation-title {
     font-size: 1.8rem;
     margin-bottom: 12px;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   .formation-subtitle {
     font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .detail-section {
     margin-bottom: 35px;
+    width: 100%;
   }
 
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
+    word-wrap: break-word;
   }
 
   .info-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    width: 100%;
   }
 
   .info-card {
     padding: 15px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .info-label {
@@ -695,26 +721,34 @@ watch(() => props.isVisible, (newValue) => {
 
   .info-value {
     font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .category-card, .requirement-card, .eval-card {
     padding: 20px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .category-name, .req-title, .eval-title {
     font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .category-description, .eval-description {
     font-size: 0.9rem;
+    word-wrap: break-word;
   }
 
   .req-list li {
     font-size: 0.9rem;
+    word-wrap: break-word;
   }
 
   .program-module {
     padding: 20px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .module-number {
@@ -725,10 +759,12 @@ watch(() => props.isVisible, (newValue) => {
 
   .module-title {
     font-size: 1.1rem;
+    word-wrap: break-word;
   }
 
   .module-description {
     font-size: 0.9rem;
+    word-wrap: break-word;
   }
 
   .module-duration {
@@ -737,16 +773,20 @@ watch(() => props.isVisible, (newValue) => {
 
   .cta-title {
     font-size: 1.5rem;
+    word-wrap: break-word;
   }
 
   .cta-description {
     font-size: 0.95rem;
+    word-wrap: break-word;
   }
 
   .btn-primary, .btn-secondary {
     width: 220px;
+    max-width: 100%;
     padding: 12px 25px;
     font-size: 0.9rem;
+    word-wrap: break-word;
   }
 }
 
@@ -754,10 +794,13 @@ watch(() => props.isVisible, (newValue) => {
   .formation-detail-overlay {
     padding: 5px;
     padding-top: 60px;
+    overflow-x: hidden;
   }
 
   .formation-detail-container {
     max-height: calc(100vh - 70px);
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
   }
 
   .close-btn {
@@ -769,35 +812,47 @@ watch(() => props.isVisible, (newValue) => {
 
   .detail-content {
     padding: 20px 12px;
+    width: calc(100% - 24px);
   }
 
   .formation-title {
     font-size: 1.6rem;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   .formation-subtitle {
     font-size: 0.95rem;
+    word-wrap: break-word;
   }
 
   .section-title {
     font-size: 1.4rem;
+    word-wrap: break-word;
   }
 
   .info-cards {
     grid-template-columns: 1fr;
     gap: 10px;
+    width: 100%;
   }
 
   .info-card {
     padding: 12px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .category-card, .requirement-card, .eval-card {
     padding: 15px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .program-module {
     padding: 15px;
+    min-width: 0;
+    word-wrap: break-word;
   }
 
   .module-number {
@@ -808,12 +863,15 @@ watch(() => props.isVisible, (newValue) => {
 
   .module-title {
     font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .btn-primary, .btn-secondary {
     width: 200px;
+    max-width: 100%;
     padding: 10px 20px;
     font-size: 0.85rem;
+    word-wrap: break-word;
   }
 }
 
